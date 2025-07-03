@@ -21,7 +21,6 @@ def backup_config():
     except FileNotFoundError:
         print(f"Configuration file {config_file} not found.")
 
-
 def change_ssh_port(config_file, new_port):
     # Read the current config file
     with open(config_file, 'r') as file:
