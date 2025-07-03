@@ -8,13 +8,13 @@ This checklist outlines the steps taken to harden a default Linux (e.g., Ubuntu 
 - [✅] Fresh minimal Linux installation (Ubuntu/CentOS)
 - [✅] Update system packages (`sudo apt update && sudo apt upgrade`)
 - [✅] Install assessment tool (e.g., Lynis, OpenSCAP)
-- [⏳] Run initial baseline scan and save results
+- [✅] Run initial baseline scan and save results
 
 ---
 
 ## 👤 2. User & Access Control
-- [ ] Create a new non-root user with `sudo` access
-- [ ] Disable root SSH login in `/etc/ssh/sshd_config`
+- [✅] Create a new non-root user with `sudo` access
+- [✅] Disable root SSH login in `/etc/ssh/sshd_config`
 - [ ] Set up SSH key-based authentication
 - [ ] Disable password authentication for SSH
 - [ ] Limit SSH login attempts and set timeout
@@ -22,7 +22,7 @@ This checklist outlines the steps taken to harden a default Linux (e.g., Ubuntu 
 ---
 
 ## 🔐 3. SSH Configuration
-- [ ] Change default SSH port (optional)
+- [✅] Change default SSH port (optional)
 - [ ] Disable empty passwords
 - [ ] Use strong `Ciphers`, `MACs`, and `KexAlgorithms`
 - [ ] Restart SSH and test secure login
