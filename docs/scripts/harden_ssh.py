@@ -69,9 +69,35 @@ def disable_root_login(config_file):
 
     print(f"Root login disabled (changed {count} line{'s' if count!=1 else ''})")
 
+def enable_key_auth(config_file):
+    # Enable key-based authentication by ensuring the following lines are present
+    with open(config_file, 'r') as file:
+        data = file.read()
+    
+    # Define the regex pattern to match lines starting with "PubkeyAuthentication"
+    pattern = r"^#?\s*PubkeyAuthentication\s+\w+"
+    
+    # Replacement String
+    replacement = "PubkeyAuthentication yes"
+
+    # Use re.sub with MULTILINE flag to replace all matching lines
+    new_data, count = re.subn(pattern, replacement, data, flags=re.MULTILINE)
+
+
+    # If no line matched, append new PubkeyAuthentication line at end
+    if count == 0:
+        new_data += f"\n{replacement}\n"
+
+    # Write updated config back
+    with open(config_file, 'w') as file:
+        file.write(new_data)
+
+    print(f"Key-based authentication enabled (changed {count} line{'s' if count!=1 else ''})")
+
 # === Main Execution ===
 if __name__ == "__main__":
     backup_config()
     change_ssh_port(config_file, new_port)
     disable_root_login(config_file)
+    enable_key_auth(config_file)
     print("SSH hardening completed. Please restart the SSH service to apply changes.")
