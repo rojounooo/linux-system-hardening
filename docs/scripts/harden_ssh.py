@@ -1,0 +1,78 @@
+import re 
+
+# === Variables ===
+
+config_file = "/etc/ssh/sshd_config"
+backup_file = "/etc/ssh/sshd_config.bak"
+new_port = 2222 # Change to your desired port
+
+# === Functions ===
+
+def backup_config():
+    """Backup the SSH configuration file."""
+    try:
+        with open(config_file, 'r') as original:
+            data = original.read()
+        with open(backup_file, 'w') as backup:
+            backup.write(data)
+        print(f"Backup created at {backup_file}")
+    except Exception as e:
+        print(f"Error creating backup: {e}")
+    except FileNotFoundError:
+        print(f"Configuration file {config_file} not found.")
+
+
+def change_ssh_port(config_file, new_port):
+    # Read the current config file
+    with open(config_file, 'r') as file:
+        data = file.read()
+
+    # Define the regex pattern to match lines starting with "Port" followed by a number
+    pattern = r"^#?\s*Port\s+\d+"
+
+    # Replacement string
+    replacement = f"Port {new_port}"
+
+    # Use re.sub with MULTILINE flag to replace all matching lines
+    new_data, count = re.subn(pattern, replacement, data, flags=re.MULTILINE)
+
+    # If no line matched, append new Port line at end
+    if count == 0:
+        new_data += f"\n{replacement}\n"
+
+    # Write updated config back
+    with open(config_file, 'w') as file:
+        file.write(new_data)
+
+    print(f"SSH port changed to {new_port} (changed {count} line{'s' if count!=1 else ''})")
+
+def disable_root_login(config_file):
+    """Disable root login via SSH."""
+    with open(config_file, 'r') as file:
+        data = file.read()
+
+    # Define the regex pattern to match lines starting with "PermitRootLogin"
+    pattern = r"^#?\s*PermitRootLogin\s+\w+"
+
+    # Replacement string
+    replacement = "PermitRootLogin no"
+
+    # Use re.sub with MULTILINE flag to replace all matching lines
+    new_data, count = re.subn(pattern, replacement, data, flags=re.MULTILINE)
+
+    # If no line matched, append new PermitRootLogin line at end
+    if count == 0:
+        new_data += f"\n{replacement}\n"
+
+    # Write updated config back
+    with open(config_file, 'w') as file:
+        file.write(new_data)
+
+    print(f"Root login disabled (changed {count} line{'s' if count!=1 else ''})")
+
+# === Main Execution ===
+if __name__ == "__main__":
+    backup_config()
+    change_ssh_port(config_file, new_port)
+    disable_root_login(config_file)
+    print("SSH hardening completed. Please restart the SSH service to apply changes.")
