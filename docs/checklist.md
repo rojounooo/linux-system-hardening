@@ -15,7 +15,7 @@ This checklist outlines the steps taken to harden a default Linux (e.g., Ubuntu 
 ## 👤 2. User & Access Control
 - [✅] Create a new non-root user with `sudo` access
 - [✅] Disable root SSH login in `/etc/ssh/sshd_config`
-- [ ] Set up SSH key-based authentication
+- [✅] Set up SSH key-based authentication
 - [ ] Disable password authentication for SSH
 - [ ] Limit SSH login attempts and set timeout
 
