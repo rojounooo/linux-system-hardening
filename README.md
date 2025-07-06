@@ -23,7 +23,8 @@ The project:
 
 ## 📂 Repository Structure
 
-| Folder/File   | Description                                  |
+| Folder/File   | Description                                |
+-----------------------------------
 | docs/         | Contains my step-by-step guide and the checklist I followed |
 | scripts/      | Bash and Python scripts for automating tasks |
 | configs/      | Example hardened configuration files |
