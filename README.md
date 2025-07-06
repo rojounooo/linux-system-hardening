@@ -25,7 +25,7 @@ The project:
 
 | Folder/File   | Description                                         |
 |---------------|-----------------------------------------------------|
-| docs/         | Contains my step-by-step guide and the checklist I followed |
+| [docs/](./docs)       | Contains my step-by-step guide and the checklist I followed |
 | scripts/      | Bash and Python scripts for automating tasks       |
 | configs/      | Example hardened configuration files               |
 | assessments/  | Before/after Lynis and OpenSCAP reports            |
