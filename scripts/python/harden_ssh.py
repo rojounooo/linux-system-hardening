@@ -2,8 +2,8 @@ import re
 
 # === Variables ===
 
-config_file = "/etc/ssh/sshd_config"
-backup_file = "/etc/ssh/sshd_config.bak"
+config_file = "/etc/ssh/sshd_config" # Path to the SSH configuration file
+backup_file = "/etc/ssh/sshd_config.bak" # Path to the SSH configuration backup file should be saved
 new_port = 2222 # Change to your desired port
 
 # === Functions ===
