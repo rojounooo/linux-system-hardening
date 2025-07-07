@@ -94,10 +94,35 @@ def enable_key_auth(config_file):
 
     print(f"Key-based authentication enabled (changed {count} line{'s' if count!=1 else ''})")
 
+def disable_password_auth(config_file):
+    # Disable password authentication.
+    with open(config_file, 'r') as file:
+        data = file.read()
+
+    # Define the regex pattern to match lines starting with "PasswordAuthentication"
+    pattern = r"^#?\s*PasswordAuthentication\s+\w+"
+
+    # Replacement string
+    replacement = "PasswordAuthentication no"
+
+    # Use re.sub with MULTILINE flag to replace all matching lines
+    new_data, count = re.subn(pattern, replacement, data, flags=re.MULTILINE)
+
+    # If no line matched, append new PasswordAuthentication line at end
+    if count == 0:
+        new_data += f"\n{replacement}\n"
+
+    # Write updated config back
+    with open(config_file, 'w') as file:
+        file.write(new_data)
+
+    print(f"Password authentication disabled (changed {count} line{'s' if count!=1 else ''})")
+
 # === Main Execution ===
 if __name__ == "__main__":
     backup_config()
     change_ssh_port(config_file, new_port)
     disable_root_login(config_file)
     enable_key_auth(config_file)
+    disable_password_auth(config_file)
     print("SSH hardening completed. Please restart the SSH service to apply changes.")
