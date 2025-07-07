@@ -9,7 +9,6 @@ One of the core responsibilities of a Security Engineer is to harden a system. I
 - Enforcing least privilege
 - Strengthening SSH and network configurations
 
-
 ---
 
 ## 📋 About
