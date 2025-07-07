@@ -8,8 +8,8 @@ new_port = 2222 # Change to your desired port
 
 # === Functions ===
 
-def backup_config():
-    """Backup the SSH configuration file."""
+def backup_config_file(config_file, backup_file):
+    # Backup the SSH configuration file
     try:
         with open(config_file, 'r') as original:
             data = original.read()
@@ -46,7 +46,7 @@ def change_ssh_port(config_file, new_port):
     print(f"SSH port changed to {new_port} (changed {count} line{'s' if count!=1 else ''})")
 
 def disable_root_login(config_file):
-    """Disable root login via SSH."""
+    # Disable root login via SSH.
     with open(config_file, 'r') as file:
         data = file.read()
 
@@ -120,7 +120,7 @@ def disable_password_auth(config_file):
 
 # === Main Execution ===
 if __name__ == "__main__":
-    backup_config()
+    backup_config_file(config_file, backup_file)
     change_ssh_port(config_file, new_port)
     disable_root_login(config_file)
     enable_key_auth(config_file)
