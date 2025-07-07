@@ -16,8 +16,8 @@ One of the core responsibilities of a Security Engineer is to harden a system. I
 The project:
 - Hardens a default Ubuntu installation
 - Follows Lynis recommendations
-- Includes parsed before / after reports of the Lynis and OpenSCAP scans
-- Provides automation scripts for replicating the process written in Bash or Python
+- Includes parsed before / after reports of the Lynis audits
+- Provides automation scripts for replicating the process written in either Bash or Python depending on complexity
 
 ---
 
