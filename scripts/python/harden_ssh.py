@@ -125,4 +125,4 @@ if __name__ == "__main__":
     disable_root_login(config_file)
     enable_key_auth(config_file)
     disable_password_auth(config_file)
-    print("SSH hardening completed. Please restart the SSH service to apply changes.")
+    print("SSH hardening completed. Please restart the SSH service to apply changes using the command \"sudo systemctl restart sshd\".")
