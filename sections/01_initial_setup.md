@@ -87,6 +87,28 @@ Software Version:
     ```  
   - For each checklist section in order, use the dedicated `.md` files in `sections/` to follow the hardening steps.
 
+- 8️⃣ Get the initial Lynis report
+
+  - Run the Lynis tool 
+    ```bash 
+      sudo lynis audit system
+    ```
+    - This will result in a lynis-report.dat file, which contains key-value pairs. 
+    - We are interested in:
+      - Hardening index score 
+      - Warnings
+      - Suggestions
+
+- 9️⃣ Parse the results
+  
+  - The lynis-report.dat can look quite overwhelming as its just lines and lines of text. The parse_lynis.sh script will extract the hardening index, warnings and suggestions.
+    ```bash 
+    nano parse_lynis.sh # Change $OUTPUT_PATH to wherever you'd like to store the parsed file.
+    sudo chmod +x parse_lynis.sh 
+    sudo ./parse_lynis.sh
+    ```
+
+
 ---
 
 [Back to Lab Overview](../README.md)
