@@ -89,6 +89,6 @@ Software Version:
 
 ---
 
-[Back to Lab Overview](../../README.md)
+[Back to Lab Overview](../README.md)
 
-After completing the initial setup, proceed to the [checklist.md](../../checklist.md) for step-by-step hardening tasks.
+After completing the initial setup, proceed to the [checklist.md](../checklist.md) for step-by-step hardening tasks.
