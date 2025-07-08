@@ -1,103 +1,66 @@
-# ✅ Manual Linux System Hardening Checklist
+# Lynis-Based Linux Hardening Checklist
 
-This checklist outlines the steps taken to harden a default Linux (e.g., Ubuntu Server) installation.
+## Boot and Services
+- [ ] Set a password on GRUB boot loader to prevent unauthorized changes or booting in single user mode without a password.  
+- [ ] Harden system services by reviewing their security level:  
+      Run: `systemd-analyze security SERVICE` for each active service  
+- [ ] Disable unnecessary protocols like `dccp`, `sctp`, `rds`, and `tipc` if not used.
 
----
+## Kernel Hardening
+- [ ] Disable core dumps explicitly in `/etc/security/limits.conf` if not required, to prevent sensitive data leakage.  
+- [ ] Tune sysctl kernel parameters to harden network and system behavior (review sysctl values differing from default profiles).
 
-## 🔧 1. Initial Setup and Assessment
-- [✅] Fresh minimal Linux installation (Ubuntu/CentOS)
-- [✅] Update system packages (`sudo apt update && sudo apt upgrade`)
-- [✅] Install assessment tool (e.g., Lynis, OpenSCAP)
-- [✅] Run initial baseline scan and save results
+## User Accounts and Authentication
+- [ ] Review and enhance PAM configuration:  
+      - Increase password hashing rounds  
+      - Set password expiration policies  
+      - Configure minimum and maximum password ages in `/etc/login.defs`  
+- [ ] Install PAM password strength modules like `pam_cracklib` or `pam_passwdqc`.  
+- [ ] Set stricter default umask (e.g., 027) in `/etc/login.defs` to improve file permission defaults.  
+- [ ] Set expiration dates on all password-protected accounts when possible.  
 
----
+## Filesystem and Storage
+- [ ] Place `/home`, `/tmp`, and `/var` on separate partitions to limit impact of full disks.  
+- [ ] Restrict file permissions appropriately (use `chmod` to fix insecure permissions).  
+- [ ] Disable USB storage drivers if not used to prevent unauthorized data transfer.
 
-## 👤 2. User & Access Control
-- [✅] Create a new non-root user with `sudo` access
-- [✅] Disable root SSH login in `/etc/ssh/sshd_config`
-- [✅] Set up SSH key-based authentication
-- [ ] Disable password authentication for SSH
-- [ ] Limit SSH login attempts and set timeout
+## Package and Patch Management
+- [ ] Keep the system up to date; check Lynis version and update if older than 4 months.  
+- [ ] Install `debsums` to verify package integrity regularly.  
+- [ ] Install `apt-show-versions` for patch management visibility.  
+- [ ] Install `apt-listbugs` and `apt-listchanges` to monitor critical bugs and changes during package upgrades.  
+- [ ] Remove unused or unnecessary software packages.
 
----
+## Logging and Auditing
+- [ ] Enable `auditd` to collect audit information and monitor system events.  
+- [ ] Enable process accounting (e.g., `acct`) and sysstat for performance and activity monitoring.  
+- [ ] Enable logging to an external host for security and archival purposes.  
+- [ ] Check and resolve deleted files still in use (to free disk space and improve security).
 
-## 🔐 3. SSH Configuration
-- [✅] Change default SSH port (optional)
-- [ ] Disable empty passwords
-- [ ] Use strong `Ciphers`, `MACs`, and `KexAlgorithms`
-- [ ] Restart SSH and test secure login
+## SSH Hardening
+- [ ] Change the default SSH port from 22 to a non-standard port.
+- [ ] Disable root login over SSH.  
+- [ ] Disable password authentication; prefer key-based auth.  
+- [ ] Disable or restrict SSH features:  
+      - `AllowTcpForwarding` set to `no`  
+      - `ClientAliveCountMax` reduced (e.g., from 3 to 2)  
+      - `LogLevel` set to `VERBOSE`  
+      - `MaxAuthTries` reduced (e.g., from 6 to 3)  
+      - `MaxSessions` reduced (e.g., from 10 to 2)  
+      - Disable `TCPKeepAlive`, `X11Forwarding`, and `AllowAgentForwarding`  
 
----
 
-## 🔥 4. Firewall and Network
-- [ ] Install and enable UFW (or use iptables/nftables)
-- [ ] Allow only necessary ports (e.g., SSH, HTTP/HTTPS)
-- [ ] Set default policy to deny incoming traffic
-- [ ] Enable firewall and verify rules
+## Network Security
+- [ ] Verify firewall is configured and active (e.g., `iptables` rules). Note: iptables modules loaded but no active rules is a warning.  
+- [ ] Disable unused network protocols as noted in kernel hardening section.
 
----
+## Intrusion Prevention and Malware Detection
+- [ ] Install and configure Fail2Ban to block repeated authentication failures.  
+- [ ] Install a malware scanner (e.g., `rkhunter`, `chkrootkit`, `OSSEC`) for periodic scans.  
+- [ ] Install a file integrity monitoring tool to detect changes to critical files.
 
-## 📦 5. Remove Unnecessary Software and Services
-- [ ] List running services (`ss -tuln`, `systemctl list-units`)
-- [ ] Remove or disable unused services (e.g., `telnet`, `cups`)
-- [ ] Disable IPv6 if not needed
-- [ ] Disable USB automount (optional)
-
----
-
-## 📁 6. File System and Permission Hardening
-- [ ] Verify and fix permissions on critical files:
-  - [ ] `/etc/passwd`
-  - [ ] `/etc/shadow`
-  - [ ] `/etc/group`
-  - [ ] `/var/log/`
-- [ ] Enable file integrity monitoring (e.g., AIDE)
-- [ ] Set sticky bit on `/tmp`
-- [ ] Disable core dumps (`/etc/security/limits.conf`)
-
----
-
-## 🛡️ 7. Logging and Auditing
-- [ ] Install and configure `auditd`
-- [ ] Add rules to log:
-  - [ ] Login events
-  - [ ] Sudo usage
-  - [ ] File access/modification
-- [ ] Set up log rotation (`logrotate`)
-- [ ] Monitor logs for unusual activity
+## Legal and User Awareness
+- [ ] Add legal banners to `/etc/issue` and `/etc/issue.net` to warn unauthorized users.
 
 ---
-
-## 🔄 8. Patching and Updates
-- [ ] Enable unattended security updates
-- [ ] Verify and install all available updates
-- [ ] Check for vulnerabilities (e.g., `ubuntu-security-status`)
-- [ ] Schedule regular patch reviews
-
----
-
-## 🧪 9. Reassessment and Verification
-- [ ] Re-run Lynis/OpenSCAP
-- [ ] Compare scores before and after hardening
-- [ ] Review logs and service status
-- [ ] Document remaining issues or warnings
-
----
-
-## 🧰 10. Final Script (Bonus)
-- [ ] Write a Bash script (`hardening.sh`) to replicate all manual steps
-- [ ] Include comments explaining each command
-- [ ] Test script on a fresh VM
-
----
-
-## 📸 11. Documentation and Presentation
-- [ ] Take before/after screenshots (Lynis, config files, etc.)
-- [ ] Write up each section in a Markdown file or PDF
-- [ ] Add explanations and justifications for each change
-- [ ] Publish everything to GitHub with a clear README
-
----
-
-**✅ Goal:** Achieve a hardened, well-documented Linux server configuration that can withstand common attacks and meet basic compliance standards (e.g., CIS Benchmarks).
 
