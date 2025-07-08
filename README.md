@@ -3,11 +3,13 @@
 
 
 ## 🎯 Aim
-One of the core responsibilities of a Security Engineer is to harden a system. I aimed to manually secure a minimal Ubuntu Server installation by following the suggestions from security assessment tools and through research of common hardening techniques.The end goal is to produce a hardened Linux server and automation scripts for replicating the process on other systems. This project focused on:
+One of the core responsibilities of a Security Engineer is to harden a system. I aimed to manually secure a minimal Ubuntu Server installation by following the suggestions from the Lynis tool and through research of common hardening techniques.The end goal is to produce a hardened Linux server and automation scripts for replicating the process on other systems. This project focused on:
 
 - Reducing attack surface
 - Enforcing least privilege
 - Strengthening SSH and network configurations
+- Logging and Auditing 
+- Automating updates and patching 
 
 ---
 
