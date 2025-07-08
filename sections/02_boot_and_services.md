@@ -1,8 +1,12 @@
-# Boot and Service Hardening 
+# Setting a Password on GRUB Bootloader:
 
-## Setting a Password on GRUB Bootloader:
-
-- **GRUB** (GRand Unified Bootloader) is a program that copies your **OS**  
+- **GRUB** (GRand Unified Bootloader) is a program that copies your **OS** into memory. GRUB is installed on the boot sector of your drive (/boot/grub)
+- Setting a GRUB password is critical if someone can gain physical or console access to the server. An unauthorised user can easily compromise your system as they can eit boot options. These include:
+    - Booting into recovery mode (provides root shell access)
+    - Editing boot parameters (kernel arguments)
+    - Boot into single-user mode (superuser mode)
+    - Bypass security mechanisms (e.g. change root passwords)
+    - Boot into another OS
 
 ## Steps
 
