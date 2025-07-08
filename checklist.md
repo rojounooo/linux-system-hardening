@@ -1,8 +1,8 @@
 # Lynis-Based Linux Hardening Checklist
 
 ## Boot and Services
-- [ ] Set a password on GRUB boot loader to prevent unauthorized changes or booting in single user mode without a password.  
-- [ ] Harden system services by reviewing their security level:  
+- [✅] Set a password on GRUB boot loader to prevent unauthorized changes or booting in single user mode without a password.  
+- [⏳] Harden system services by reviewing their security level:  
       - Run: `systemd-analyze security SERVICE` for each active service  
 - [ ] Disable unnecessary protocols like `dccp`, `sctp`, `rds`, and `tipc` if not used.
 
