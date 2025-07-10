@@ -9,6 +9,7 @@ Examples:
 - mysqld (MySQL Database)
 
 ## Managing Services: 
+
 **`systemctl`** is the command used to manage services
 
 Common commands:
@@ -23,3 +24,10 @@ Example Syntax:
 ```bash 
 sudo systemctl restart sshd
 ```
+
+## Steps to Harden 
+
+Get a list of all services:
+```bash 
+systemctl list-unit-files --type=service --no-pager --no-legend | awk '{print $1}'
+``` 
