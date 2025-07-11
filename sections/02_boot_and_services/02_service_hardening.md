@@ -29,7 +29,8 @@ sudo systemctl restart sshd
 
 Get a list of all services and output to a file:
 ```bash 
-systemctl list-unit-files --type=service --no-pager --no-legend | awk '{print $1}' > current_services.txt
+systemctl list-units --type=service --state=running --no-pager --no-legend | awk '{print $1}' > current_services.txt
+
 ``` 
 Run systemd-analyze security for each service and output to individual files
 ```bash 
