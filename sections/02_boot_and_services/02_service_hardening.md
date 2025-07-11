@@ -31,7 +31,7 @@ Get a list of all services and output to a file:
 ```bash 
 systemctl list-unit-files --type=service --no-pager --no-legend | awk '{print $1}' > current_services.txt
 ``` 
-Run systemd-analyse security for each service and output to individual files
+Run systemd-analyze security for each service and output to individual files
 ```bash 
 cat current_services.txt | awk '{print $1}' | xargs -I {} -n 1 -P 4 sh -c 'systemd-analyze security {} > {}_security.txt 2>> errors.log'
 ``` 
