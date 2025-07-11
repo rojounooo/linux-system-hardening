@@ -36,3 +36,9 @@ Run systemd-analyze security for each service and output to individual files
 ```bash 
 cat current_services.txt | awk '{print $1}' | xargs -I {} -n 1 -P 4 sh -c 'systemd-analyze security {} > {}_security.txt 2>> errors.log'
 ``` 
+
+Extract security scores and create a priority hardening list
+```bash 
+xargs -I{} -P 4 sh -c \
+'score=$(grep "^→ Overall exposure level for {}:" {}_security.txt | cut -d":" -f2 | awk "{print \$1}"); echo "{} $score"' \ < current_services.txt | sort -k2 -n -r > service_priority.txt
+``` 
