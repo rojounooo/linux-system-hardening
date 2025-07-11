@@ -25,13 +25,18 @@ Example Syntax:
 sudo systemctl restart sshd
 ```
 
+## Why harden system services 
+
+Unsecured services can be exploited to gain root access to a system. Many services like SSH or Apache listen for connection on network ports, and unless configured properly they can allow unauthorised access or be used in a brute force attack. By securing services or disabling unused ones the potential attack surface is minimised reducing potential entry points for a malicious actor. Software bugs are regularly found and a service that provides root access is especially dangerous. 
+
+
 ## Steps to Harden 
 
 Get a list of all services and output to a file:
 ```bash 
 systemctl list-units --type=service --state=running --no-pager --no-legend | awk '{print $1}' > current_services.txt
-
 ``` 
+
 Run systemd-analyze security for each service and output to individual files
 ```bash 
 cat current_services.txt | awk '{print $1}' | xargs -I {} -n 1 -P 4 sh -c 'systemd-analyze security {} > {}_security.txt 2>> errors.log'
@@ -39,6 +44,13 @@ cat current_services.txt | awk '{print $1}' | xargs -I {} -n 1 -P 4 sh -c 'syste
 
 Extract security scores and create a priority hardening list
 ```bash 
-xargs -I{} -P 4 sh -c \
-'score=$(grep "^→ Overall exposure level for {}:" {}_security.txt | cut -d":" -f2 | awk "{print \$1}"); echo "{} $score"' \ < current_services.txt | sort -k2 -n -r > service_priority.txt
+xargs -I {} -P 4 sh -c \ 'score=$(grep "^→ Overall exposure level for {}:" {}_security.txt | cut -d":" -f2 | awk "{print \$1}"); echo "{} $score"' \ < current_services.txt | sort -k2 -n -r > service_priority.txt
 ``` 
+
+Go through each service file and begin hardening 
+
+## Organizing Service Hardening Documentation
+
+Each service covered in this hardening process will have its own dedicated directory under `/02_boot_and_services/services`. Inside each service directory, you will find detailed hardening steps, configuration examples, and relevant notes specific to that service.
+
+To make navigation easier, an `index.md` file will be maintained in the `/02_boot_and_services` directory. This index will provide links to each individual service's documentation, allowing for quick access and reference as you work through hardening your system services.
