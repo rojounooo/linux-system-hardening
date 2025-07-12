@@ -4,7 +4,7 @@
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |      9.6        |
+| Baseline   |      9.6       |
 | Hardened   |              |
 
 ---
