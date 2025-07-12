@@ -12,4 +12,8 @@ The `unattended-upgrades` service automatically downloads and installs security 
     - DUring updates, external repos are used. This means that malicious packages or can be inejcted or data can be tampered with via a MitM attack.
 
 ## Hardening Goals
+- Restrict filesystem access
+- Restrict capabilities
+- Prevent escalation 
+
 
