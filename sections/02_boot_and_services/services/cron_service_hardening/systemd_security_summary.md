@@ -1,10 +1,10 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `cron.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
+| Baseline   |     9.6        |
 | Hardened   |                |
 
 ---

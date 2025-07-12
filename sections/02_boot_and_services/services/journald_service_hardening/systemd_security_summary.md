@@ -1,10 +1,10 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `systemd-journald.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
+| Baseline   |      4.3       |
 | Hardened   |                |
 
 ---

@@ -1,10 +1,10 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `systemd-udevd.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
+| Baseline   |      7.1       |
 | Hardened   |                |
 
 ---

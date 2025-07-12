@@ -1,10 +1,10 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `systemd-resolved.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
+| Baseline   |       2.2      |
 | Hardened   |                |
 
 ---

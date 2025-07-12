@@ -1,10 +1,10 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `systemd-timesyncd.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
+| Baseline   |      2.1       |
 | Hardened   |                |
 
 ---

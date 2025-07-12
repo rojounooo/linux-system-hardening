@@ -1,11 +1,11 @@
-# Systemd Security Summary – `<service_name>.service`
+# Systemd Security Summary – `unattended_upgrades.service`
 
 ## Exposure Level
 
 | Stage      | Exposure Score |
 |------------|----------------|
-| Baseline   |                |
-| Hardened   |                |
+| Baseline   |      9.6        |
+| Hardened   |              |
 
 ---
 
