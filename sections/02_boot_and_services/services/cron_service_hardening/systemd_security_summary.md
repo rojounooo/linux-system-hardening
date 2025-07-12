@@ -1,18 +1,60 @@
-# systemd-analyze security Summary for [Service Name]
+# Systemd Security Summary – `<service_name>.service`
 
-## Exposure Score
-| State      | Score  |
-|------------|--------|
-| Baseline   |        |
-| Hardened   |        |
+## Exposure Level
 
-## Key Improvements
-| Setting                | Baseline | Hardened |
-|------------------------|----------|----------|
-|                        |          |          |
+| Stage      | Exposure Score |
+|------------|----------------|
+| Baseline   |                |
+| Hardened   |                |
 
-## Remaining Risks
-_List any hardening measures not applied and why._
+---
 
-## Notes
-_Additional observations or considerations._
+## Key Security Options
+
+| Setting                  | Baseline | Hardened | Notes                       |
+|--------------------------|----------|----------|-----------------------------|
+| NoNewPrivileges          | ✗        |          |                             |
+| PrivateDevices           | ✗        |          |                             |
+| ProtectSystem            | ✗        |          |                             |
+| ProtectHome              | ✗        |          |                             |
+| ProtectKernelModules     | ✗        |          |                             |
+| ProtectControlGroups     | ✗        |          |                             |
+| RestrictAddressFamilies  | ✗        |          |                             |
+| CapabilityBoundingSet    | ✗        |          |                             |
+| SystemCallFilter         | ✗        |          |                             |
+| MemoryDenyWriteExecute   | ✗        |          |                             |
+| RestrictRealtime         | ✗        |          |                             |
+| PrivateTmp               | ✗        |          |                             |
+
+---
+
+## Summary of Improvements
+
+- **Baseline Findings:**  
+  - `<service_name>.service` was initially configured with an exposure level of **X.X/10**.  
+  - Critical security features such as sandboxing, capability restrictions, and filesystem protections were not enabled by default.  
+
+- **Hardened Configuration:**  
+  - The hardened configuration applies the following systemd security directives:  
+    - `NoNewPrivileges=yes`
+    - `ProtectSystem=strict`
+    - `PrivateDevices=yes`
+    - (add others as applied)  
+
+---
+
+## Remaining Risks / Justifications
+
+- Certain options could not be applied due to service functionality requirements:
+  - Example: `ProtectHome=yes` was not enabled as the service needs access to user directories.
+  - Example: `CapabilityBoundingSet` was reduced but still includes `CAP_NET_BIND_SERVICE` for network functionality.
+
+- Further hardening could include AppArmor or SELinux profiles.
+
+---
+
+## Raw Reports
+
+- [Baseline Security Report](./systemd_security_report/baseline.txt)
+- [Hardened Security Report](./systemd_security_report/hardened.txt)
+
