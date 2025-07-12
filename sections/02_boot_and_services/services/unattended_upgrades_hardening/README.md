@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# Unattended Upgrades Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `unattended-upgrades` service automatically downloads and installs security updates. It operates without user intervention to ensure critical patches are applied promptly, reducing exposure to known vulnerabilities. Hardening ensures it performs updates securely.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._

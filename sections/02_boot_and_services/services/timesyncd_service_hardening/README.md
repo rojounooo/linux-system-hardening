@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# timesyncd Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `systemd-timesyncd` service synchronizes system time with network time servers (NTP). Accurate time is essential for logs, certificates, and security mechanisms. Hardening limits its privileges and protects against attacks that manipulate system time.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._

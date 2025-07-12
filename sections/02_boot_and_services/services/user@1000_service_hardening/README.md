@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# user@1000 Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `user@1000` service is a per-user systemd instance that manages user-level processes and services. Hardening this service helps protect against privilege escalation and ensures user-level processes remain isolated.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._

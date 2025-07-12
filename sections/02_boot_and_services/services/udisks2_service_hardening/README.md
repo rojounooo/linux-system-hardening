@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# udisks2 Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `udisks2` service provides interfaces to manage disks, partitions, and storage devices. It can mount/unmount devices and change filesystem structures. Hardening is important to limit its privileges and protect against unauthorized storage access.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._

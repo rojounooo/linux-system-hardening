@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# ssh Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `ssh` (OpenSSH) service enables secure remote access to the system over encrypted connections. It is a common target for attackers. Hardening `ssh` helps reduce the risk of unauthorized access, brute force attacks, and privilege escalation.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._

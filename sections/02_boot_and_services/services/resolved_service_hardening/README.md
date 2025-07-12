@@ -1,7 +1,7 @@
-# [Service Name] Hardening
+# systemd-resolved Hardening
 
 ## Service Overview
-_Describe the service and its purpose._
+The `systemd-resolved` service provides network name resolution to local applications. It caches DNS queries and manages DNSSEC validation. Hardening `resolved` limits its access to system resources and protects against DNS-based attacks.
 
 ## Why Hardening is Needed
 _Explain why this service needs hardening (e.g., common vulnerabilities, attack vectors)._
