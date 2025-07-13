@@ -84,7 +84,7 @@
 | SystemCallFilter=~@obsolete      | ✗        |         | Syscalls filtered for obsolete                          |
 | SystemCallFilter=~@privileged    | ✗        |         | Syscalls filtered for privileged                        |
 | SystemCallFilter=~@raw-io        | ✗        |         | Syscalls filtered for raw I/O                           |
-| SystemCallFilter=~@reboot        | ✗        |        | Syscalls filtered for reboot                            |
+| SystemCallFilter=~@reboot        | ✗        |        | Syscalls filtered for reboot                                                             |
 | SystemCallFilter=~@resources     | ✗        |         | Syscalls filtered for resources                         |
 | SystemCallFilter=~@swap          | ✗        |         | Syscalls filtered for swap                              |
 | IPAddressDeny=                  | ✗        |         | IP address allow list applied                           |
@@ -99,7 +99,7 @@
 ## Summary of Improvements
 
 - **Baseline Findings:**  
-  - `<service_name>.service` was initially configured with an exposure level of **X.X/10**.  
+  - `cron.service` was initially configured with an exposure level of **9.6/10**.  
   - Critical security features such as sandboxing, capability restrictions, and filesystem protections were not enabled by default.  
 
 - **Hardened Configuration:**  
