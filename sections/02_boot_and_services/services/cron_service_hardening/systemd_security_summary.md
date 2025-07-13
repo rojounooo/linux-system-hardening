@@ -91,9 +91,6 @@
 | NotifyAccess=                  | ✓        |          | Service child processes cannot alter service state     |
 | UMask=                         | ✗        |         | Restrict file creation mask to avoid world-readable    |
 
-
-
-
 ---
 
 ## Summary of Improvements
