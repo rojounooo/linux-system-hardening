@@ -102,27 +102,24 @@
   - `cron.service` was initially configured with an exposure level of **9.6/10**.  
   - Critical security features such as sandboxing, capability restrictions, and filesystem protections were not enabled by default.  
 
-- **Hardened Configuration:**  
-  - The hardened configuration applies the following systemd security directives:  
-    - `NoNewPrivileges=yes`
-    - `ProtectSystem=strict`
-    - `PrivateDevices=yes`
-    - (add others as applied)  
+** Directives Sections:**
+  - Privilege & Access Restrictions
+  - Filesystem Protections
+  - Kernel & Device Isolation
+  - Namespace & Syscall Restrictions
 
 ---
 
 ## Remaining Risks / Justifications
 
 - Certain options could not be applied due to service functionality requirements:
-  - Example: `ProtectHome=yes` was not enabled as the service needs access to user directories.
-  - Example: `CapabilityBoundingSet` was reduced but still includes `CAP_NET_BIND_SERVICE` for network functionality.
-
-- Further hardening could include AppArmor or SELinux profiles.
+  - RootDirectory=, cannot be changed as cron needs to be run as root 
+  - ProtectHome=, this one is optional; if access to user files is required then it has to be set to false
 
 ---
 
 ## Raw Reports
 
-- [Baseline Security Report](./systemd_security_report/baseline.txt)
-- [Hardened Security Report](./systemd_security_report/hardened.txt)
+- [Baseline Security Report](./baseline_config/original.conf)
+- [Hardened Security Report](./systemd_security_report/)
 
