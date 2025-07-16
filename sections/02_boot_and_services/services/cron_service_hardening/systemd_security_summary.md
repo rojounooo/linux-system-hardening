@@ -1,15 +1,18 @@
-# Systemd Security Summary – `cron.service`
 
-## Exposure Level
+# 🔐 Systemd Hardening Audit – `cron.service`
 
-| Stage      | Exposure Score |
-|------------|----------------|
-| Baseline   |     9.6        |
-| Hardened   |                |
+## 1. Exposure Level Overview
+
+| Stage    | Exposure Score | Rating |
+|----------|----------------|--------|
+| Baseline | 9.6            | UNSAFE |
+| Hardened | 4.2 *(Target: 4.0)* | OK     |
+
+A dramatic reduction in exposure, showing thoughtful application of systemd hardening techniques without impairing cron functionality.
 
 ---
 
-## Key Security Options
+## 2. Security Directives Table
 
 | Setting                                 | Baseline | Hardened | Notes                                               |
 |-----------------------------------------|----------|----------|-----------------------------------------------------|
@@ -93,30 +96,38 @@
 
 ---
 
-## Summary of Improvements
+---
 
-- **Baseline Findings:**  
-  - `cron.service` was initially configured with an exposure level of **9.6/10**.  
-  - Critical security features such as sandboxing, capability restrictions, and filesystem protections were not enabled by default.  
+## 3. Audit Summary & Methodology
 
-** Directives Sections:**
-  - Privilege & Access Restrictions
-  - Filesystem Protections
-  - Kernel & Device Isolation
-  - Namespace & Syscall Restrictions
+### 🔍 Methodology
+- Baseline analyzed via `systemd-analyze security cron.service`
+- Drop-in configuration defined in `override.conf` with inline documentation
+- Manual and automated testing confirmed full cron functionality
+- Optional tracing via `strace` used to inspect syscall behavior
+- `UMask=0077` verified through cron-executed diagnostic job
+
+### 🧾 Key Hardening Enhancements
+- Enabled `NoNewPrivileges=true` to block privilege escalation
+- Locked down device and system access via `PrivateDevices` and `ProtectSystem=strict`
+- Filtered sensitive syscalls using `SystemCallFilter=~@privileged`
+- Scoped network exposure with `RestrictAddressFamilies=AF_UNIX`
+- Set secure file creation defaults using `UMask=0077`
 
 ---
 
-## Remaining Risks / Justifications
+## 4. Remaining Risks / Justifications
 
-- Certain options could not be applied due to service functionality requirements:
-  - RootDirectory=, cannot be changed as cron needs to be run as root 
-  - ProtectHome=, this one is optional; if access to user files is required then it has to be set to false
+| Setting          | Reason for Omission |
+|------------------|---------------------|
+| `RootDirectory=` | Cron requires unrestricted access across system roots |
+| `User=`          | Running as non-root could block root-owned job execution |
+| `ProtectHome=`   | May interfere with user job execution involving `$HOME` |
+
+These settings were purposefully left unchanged to ensure full compatibility while minimizing risk elsewhere.
 
 ---
 
-## Raw Reports
+## 5. Verification Steps
 
-- [Baseline Security Report](./baseline_config/original.conf)
-- [Hardened Security Report](./systemd_security_report/)
-
+---
