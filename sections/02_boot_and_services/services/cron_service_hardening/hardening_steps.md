@@ -10,28 +10,32 @@ sudo systemctl edit cron.service
 ``` 
 ### 2. Add hardening directives 
 ```bash 
-    [Service]
+[Service]
+# Run cron in foreground
+ExecStart=
+ExecStart=/bin/bash -c 'umask 0027 && exec /usr/sbin/cron -f' # Foregrounds cron.service and forces it to use umask 0027
 
-    # 🛑 Privilege & Access Restrictions
-    NoNewPrivileges=true                      # Prevents privilege escalation
-    CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_CHOWN CAP_FOWNER
-    RestrictSUIDSGID=true                     # Disallows setuid/setgid binaries
-    UMask=0027                                # Ensures secure file creation (640 files, 750 dirs)
+# 🛑 Privilege & Access Restrictions
+NoNewPrivileges=yes
+UMask=0027
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_CHOWN CAP_FOWNER
+RestrictSUIDSGID=true
 
-    # 📁 Filesystem Protections
-    PrivateTmp=true                           # Isolates temp directories
-    ProtectSystem=strict                      # Mounts /usr, /boot, and /etc as read-only
-    ProtectHome=true                          # Blocks access to /home, /root, and /run/user
+# 📁 Filesystem Protections
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
 
-    # 🧠 Kernel & Device Isolation  
-    ProtectKernelTunables=true                # Prevents tampering with kernel settings
-    ProtectKernelModules=true                 # Blocks loading/unloading of kernel modules
-    ProtectControlGroups=true                 # Restricts cgroup manipulation
-    PrivateDevices=true                       # Creates an isolated /dev environment
+# 🧠 Kernel & Device Isolation
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+PrivateDevices=true
 
-    # 🔒 Namespace & Syscall Restrictions
-    RestrictNamespaces=uts ipc pid user cgroup # Blocks risky namespace creation
-    SystemCallFilter=@system-service          # Whitelists safe system calls
+# 🔒 Namespace & Syscall Restrictions
+RestrictNamespaces=uts ipc pid user cgroup
+SystemCallFilter=@system-service
+
 
 ```
 
