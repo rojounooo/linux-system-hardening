@@ -51,4 +51,8 @@ partition_and_format $TMP_DISK "/tmp" "nodev,nosuid,noexec"
 echo "=== Reloading mounts ==="
 mount -a
 
+echo "=== Reloading systemd daemon ==="
+systemctl daemon-reload
+
 echo "[✔] All done. Verify with: df -h"
+
