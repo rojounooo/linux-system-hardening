@@ -74,7 +74,3 @@ Disabling USB storage drivers prevents unauthorized access to or exfiltration of
     ```bash 
     lsmod | grep usb_storage
     ```
-
-
-
-
