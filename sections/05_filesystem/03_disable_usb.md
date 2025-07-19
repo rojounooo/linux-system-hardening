@@ -70,7 +70,7 @@ Disabling USB storage drivers prevents unauthorized access to or exfiltration of
     sudo modprobe usb-storage 
     ``` 
 
-2. Try plugging in a usb drive and check 
+2. Check if it has loaded 
     ```bash 
     lsmod | grep usb_storage
     ```
