@@ -22,7 +22,7 @@
 ## Filesystem and Storage
 - [✅] Place `/home`, `/tmp`, and `/var` on separate partitions to limit impact of full disks.  
 - [ ] Restrict file permissions appropriately (use `chmod` to fix insecure permissions).  
-- [⏳] Disable USB storage drivers if not used to prevent unauthorized data transfer.
+- [✅] Disable USB storage drivers if not used to prevent unauthorized data transfer.
 
 ## Package and Patch Management
 - [ ] Keep the system up to date; check Lynis version and update if older than 4 months.  
