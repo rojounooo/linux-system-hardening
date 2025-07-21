@@ -14,7 +14,7 @@ backup_config_file_path = "/etc/ssh/sshd_config.bak"
 # Dictionary of configuration changes
 config_changes = {
     "Port 22": "Port 2222",
-    "PermitRootLogin yes": "PermitRootLogin no",
+    "PermitRootLogin": "PermitRootLogin no",
     "PubKeyAuthentication": "PubkeyAuthentication yes",
     "PasswordAuthentication yes": "PasswordAuthentication no",
     "AllowTcpForwarding yes": "AllowTcpForwarding no",
@@ -84,7 +84,6 @@ def modify_lines(lines, changes):
 
     return updated_lines
 
-
 def preview_changes(original_lines, modified_lines):
     """
     Compares original and modified lines and prints the changes.
@@ -97,7 +96,6 @@ def preview_changes(original_lines, modified_lines):
             print(f"+ Modified: {mod.strip()}")
     print("--- End of Preview ---\n")
 
-
 def write_config_file(file_path, lines):
     """
     Writes the modified lines back to the SSH configuration file.
@@ -108,7 +106,6 @@ def write_config_file(file_path, lines):
         print(f"Configuration file updated: {file_path}")
     except Exception as e:
         print(f"Error writing config file: {e}")
-
 
 def main():
     # Read the original config
@@ -127,7 +124,6 @@ def main():
         print("Changes applied.")
     else:
         print("No changes were made.")
-
 
 if __name__ == "__main__":
     main()
