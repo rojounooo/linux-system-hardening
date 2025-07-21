@@ -38,10 +38,10 @@
 - [ ] Check and resolve deleted files still in use (to free disk space and improve security).
 
 ## SSH Hardening
-- [ ] Change the default SSH port from 22 to a non-standard port.
-- [ ] Disable root login over SSH.  
-- [ ] Disable password authentication; prefer key-based auth.  
-- [ ] Disable or restrict SSH features:  
+- [✅] Change the default SSH port from 22 to a non-standard port.
+- [✅] Disable root login over SSH.  
+- [✅] Disable password authentication; prefer key-based auth.  
+- [✅] Disable or restrict SSH features:  
       - `AllowTcpForwarding` set to `no`  
       - `ClientAliveCountMax` reduced (e.g., from 3 to 2)  
       - `LogLevel` set to `VERBOSE`  
