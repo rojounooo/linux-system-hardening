@@ -77,9 +77,6 @@ This is different to the earlier hardening using `systemctl edit` as that overri
     PubkeyAuthentication yes
     ```
 
----
-
-### Continue with other hardening steps
 
 6. Set `AllowTcpForwarding` to `no`  
 
