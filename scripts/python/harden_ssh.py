@@ -8,8 +8,8 @@ import shutil
 # === Variables ===
 
 # Configuration file path
-init_config_path = "/etc/sshd/sshd_config"
-backup_config_file_path = "/etc/sshd/sshd_config.bak"
+init_config_path = "/etc/ssh/sshd_config"
+backup_config_file_path = "/etc/ssh/sshd_config.bak"
 
 # Dictionary of configuration changes
 config_changes = {
