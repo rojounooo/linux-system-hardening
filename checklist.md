@@ -56,8 +56,8 @@
 
 ## Intrusion Prevention and Malware Detection
 - [✅] Install and configure Fail2Ban to block repeated authentication failures.  
-- [ ] Install a malware scanner (e.g., `rkhunter`, `chkrootkit`, `OSSEC`) for periodic scans.  
-- [ ] Install a file integrity monitoring tool to detect changes to critical files.
+- [✅] Install a malware scanner (e.g., `rkhunter`, `chkrootkit`, `OSSEC`) for periodic scans.  
+- [✅] Install a file integrity monitoring tool to detect changes to critical files.
 
 ## Legal and User Awareness
 - [ ] Add legal banners to `/etc/issue` and `/etc/issue.net` to warn unauthorized users.
