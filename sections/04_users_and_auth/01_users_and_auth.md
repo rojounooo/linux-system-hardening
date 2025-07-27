@@ -1,5 +1,10 @@
 # Hardening User Authentication 
 
+## What is it
+
+**PAM (Pluggable Authentication Modules)** is a flexible framework used by Linux systems to manage authentication. It allows administrators to define how users are authenticated, how strong their passwords must be, and how login attempts are handled. PAM uses a modular structure, so different authentication rules can be added, removed, or configured using simple text
+
+
 ## Steps 
 
 1. Review and Enhance PAM Configuration 
