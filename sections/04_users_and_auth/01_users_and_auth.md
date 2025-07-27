@@ -87,3 +87,20 @@
     echo "umask 027" | sudo tee -a /etc/profile.d/umask.sh
     sudo chmod +x /etc/profile.d/umask.sh
     ```
+
+5. Set Expiration Dates on Accounts Where Applicable 
+
+    - Set date for specific user account:
+    ```bash 
+    sudo chage -E 2025-12-31 username
+    ```
+
+    - To check the current expiration:
+    ```bash 
+    chage -l username
+    ```
+
+    - To list all users and respective expiration dates:
+    ```bash 
+    sudo getent shadow | awk -F: '{ print $1, $8 }'
+    ```
