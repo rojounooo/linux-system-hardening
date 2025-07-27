@@ -11,13 +11,13 @@
 - [ ] Tune sysctl kernel parameters to harden network and system behavior (review sysctl values differing from default profiles).
 
 ## User Accounts and Authentication
-- [ ] Review and enhance PAM configuration:  
+- [✅] Review and enhance PAM configuration:  
       - Increase password hashing rounds  
       - Set password expiration policies  
       - Configure minimum and maximum password ages in `/etc/login.defs`  
-- [ ] Install PAM password strength modules like `pam_cracklib` or `pam_passwdqc`.  
-- [ ] Set stricter default umask (e.g., 027) in `/etc/login.defs` to improve file permission defaults.  
-- [ ] Set expiration dates on all password-protected accounts when possible.  
+- [✅] Install PAM password strength modules like `pam_cracklib` or `pam_passwdqc`.  
+- [✅] Set stricter default umask (e.g., 027) in `/etc/login.defs` to improve file permission defaults.  
+- [✅] Set expiration dates on all password-protected accounts when possible.  
 
 ## Filesystem and Storage
 - [✅] Place `/home`, `/tmp`, and `/var` on separate partitions to limit impact of full disks.  
