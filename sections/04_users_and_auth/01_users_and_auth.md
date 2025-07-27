@@ -69,3 +69,21 @@
     ```
 
     - Save and Exit
+
+4. Set Stricter umask
+
+    - Modify /etc/login.defs
+    ```bash 
+    sudo nano /etc/login.defs
+    ```
+
+    - Add or change the following line 
+    ```bash 
+    UMASK 027
+    ```
+
+    - Set in /etc/profile for consistency 
+    ```bash 
+    echo "umask 027" | sudo tee -a /etc/profile.d/umask.sh
+    sudo chmod +x /etc/profile.d/umask.sh
+    ```
