@@ -25,11 +25,11 @@
 - [✅] Disable USB storage drivers if not used to prevent unauthorized data transfer.
 
 ## Package and Patch Management
-- [ ] Keep the system up to date; check Lynis version and update if older than 4 months.  
-- [ ] Install `debsums` to verify package integrity regularly.  
-- [ ] Install `apt-show-versions` for patch management visibility.  
-- [ ] Install `apt-listbugs` and `apt-listchanges` to monitor critical bugs and changes during package upgrades.  
-- [ ] Remove unused or unnecessary software packages.
+- [✅] Keep the system up to date; check Lynis version and update if older than 4 months.  
+- [✅] Install `debsums` to verify package integrity regularly.  
+- [✅] Install `apt-show-versions` for patch management visibility.  
+- [✅] Install `apt-listbugs` and `apt-listchanges` to monitor critical bugs and changes during package upgrades.  
+- [✅] Remove unused or unnecessary software packages.
 
 ## Logging and Auditing
 - [✅] Enable `auditd` to collect audit information and monitor system events.  
