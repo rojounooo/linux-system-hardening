@@ -41,7 +41,13 @@
     sudo systemctl status sysstat
     ```
 
-4. Ensure data collection is enabled in config file
+4. Backup sysstat file
+
+    ```bash
+    sudo cp /etc/default/sysstat /etc/default/sysstat.bak
+    ```
+
+5. Ensure data collection is enabled in config file
 
     ```bash 
     sudo nano /etc/default/sysstat
@@ -50,7 +56,7 @@
     ENABLED="true"
     ```
 
-5. Restart service 
+6. Restart service 
 
     ```bash 
     sudo systemctl restart sysstat
