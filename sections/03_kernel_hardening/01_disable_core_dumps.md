@@ -11,19 +11,23 @@ They can store details like passwords
 
 ## Steps 
 
-1. Open the limits configuration file:
+1. Backup limits file 
+    ```bash 
+    sudo cp /etc/security/limits.conf /etc/security/limits.conf.bak
+
+2. Open the limits configuration file:
 
     ```bash
     sudo nano /etc/security/limits.conf
     ``` 
 
-2. Append following lines
+3. Append following lines
     ```bash 
     * hard core 0
     * soft core 0
     ```
 
-3. Logout and back in (or reboot) 
+4. Logout and back in (or reboot) 
 
     ```bash 
     sudo reboot
