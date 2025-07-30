@@ -19,20 +19,28 @@
     blacklist rds
     blacklist tipc
     ```
+3. Prevent auto loading of modules 
 
-3. Update initramfs
+    ```bash 
+    install dccp /bin/true
+    install sctp /bin/true
+    install rds /bin/true   
+    install tipc /bin/true
+    ```
+
+4. Update initramfs
 
     ```bash 
     sudo update-initramfs -u
     ```
 
-4. Reboot system 
+5. Reboot system 
 
     ```bash 
     sudo reboot 
     ```
 
-5. Verify modules are not loaded 
+6. Verify modules are not loaded 
 
     ```bash 
     lsmod | grep -E 'dccp|sctp|rds|tipc'
