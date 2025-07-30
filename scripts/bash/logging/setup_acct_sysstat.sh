@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This script sets up the sysstat package for system performance monitoring and acct package for process accounting. 
 

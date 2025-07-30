@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This script sets up auditd on a Linux system.
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Block USB storage modules on Ubuntu
 # Requires sudo/root privileges

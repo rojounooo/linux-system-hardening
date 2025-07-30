@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Variables
 LYNIS_PATH=/var/log/lynis-report.dat # Path to the Lynis report file
 OUTPUT_PATH=/home/admin/parsed_lynis_report.txt # Path to the output file

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # === Set target directory ===
 TARGET_DIR="./baseline_config"

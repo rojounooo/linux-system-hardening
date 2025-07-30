@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Setup OSSEC HIDS
 # Requires sudo/root privileges
