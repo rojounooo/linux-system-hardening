@@ -8,7 +8,7 @@
 
 ## Kernel Hardening
 - [✅] Disable core dumps explicitly in `/etc/security/limits.conf` if not required, to prevent sensitive data leakage.  
-- [ ] Tune sysctl kernel parameters to harden network and system behavior (review sysctl values differing from default profiles).
+- [✅] Tune sysctl kernel parameters to harden network and system behavior (review sysctl values differing from default profiles).
 
 ## User Accounts and Authentication
 - [✅] Review and enhance PAM configuration:  
