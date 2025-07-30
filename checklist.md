@@ -51,7 +51,7 @@
 
 ## Network Security
 - [✅] Verify firewall is configured and active (e.g., `iptables` rules). Note: iptables modules loaded but no active rules is a warning.  
-- [ ] Disable unused network protocols as noted in kernel hardening section.
+
 
 ## Intrusion Prevention and Malware Detection
 - [✅] Install and configure Fail2Ban to block repeated authentication failures.  
