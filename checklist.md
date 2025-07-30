@@ -20,8 +20,7 @@
 - [✅] Set expiration dates on all password-protected accounts when possible.  
 
 ## Filesystem and Storage
-- [✅] Place `/home`, `/tmp`, and `/var` on separate partitions to limit impact of full disks.  
-- [ ] Restrict file permissions appropriately (use `chmod` to fix insecure permissions).  
+- [✅] Place `/home`, `/tmp`, and `/var` on separate partitions to limit impact of full disks.    
 - [✅] Disable USB storage drivers if not used to prevent unauthorized data transfer.
 
 ## Package and Patch Management
