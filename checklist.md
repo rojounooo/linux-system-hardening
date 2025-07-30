@@ -4,7 +4,7 @@
 - [✅] Set a password on GRUB boot loader to prevent unauthorized changes or booting in single user mode without a password.  
 - [⏳] Harden system services by reviewing their security level:  
       - Run: `systemd-analyze security SERVICE` for each active service  
-- [ ] Disable unnecessary protocols like `dccp`, `sctp`, `rds`, and `tipc` if not used.
+- [✅] Disable unnecessary protocols like `dccp`, `sctp`, `rds`, and `tipc` if not used.
 
 ## Kernel Hardening
 - [✅] Disable core dumps explicitly in `/etc/security/limits.conf` if not required, to prevent sensitive data leakage.  
