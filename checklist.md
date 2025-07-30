@@ -35,7 +35,6 @@
 - [✅] Enable `auditd` to collect audit information and monitor system events.  
 - [✅] Enable process accounting (e.g., `acct`) and sysstat for performance and activity monitoring.  
 - [ ] Enable logging to an external host for security and archival purposes.  
-- [ ] Check and resolve deleted files still in use (to free disk space and improve security).
 
 ## SSH Hardening
 - [✅] Change the default SSH port from 22 to a non-standard port.
