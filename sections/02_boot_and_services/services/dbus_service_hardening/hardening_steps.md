@@ -14,8 +14,6 @@ sudo systemctl edit dbus.service
 
 # 🛑 Privilege & Access Restrictions
 NoNewPrivileges=yes
-UMask=0027
-CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_CHOWN CAP_FOWNER
 RestrictSUIDSGID=true
 
 # 📁 Filesystem Protections
