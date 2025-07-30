@@ -11,7 +11,12 @@ Banners are pre-login messages that warn users about unauthorized access and pro
     sudo cp /etc/issue /etc/issue.bak 
     ```
 
-2. Add your banner message 
+2. Edit /etc/issue 
+    ```bash 
+    sudo nano /etc/issue
+    ```
+
+3. Add your banner message 
 
     ```bash 
     ********************************************************************
@@ -26,23 +31,23 @@ Banners are pre-login messages that warn users about unauthorized access and pro
     ********************************************************************
     ```
 
-3. Save and exit
+4. Save and exit
 
-4. Repeat for /etc/issue.net 
+5. Repeat for /etc/issue.net 
 
-5. Edit SSH config
+6. Edit SSH config
 
     ```bash 
     sudo nano /etc/ssh/sshd_config
     ```
 
-6. Add/modify the following line
+7. Add/modify the following line
 
     ```bash 
     Banner /etc/issue.net
     ```
 
-7. Restart SSH service 
+8. Restart SSH service 
     
     ```bash 
     sudo systemctl restart sshd
