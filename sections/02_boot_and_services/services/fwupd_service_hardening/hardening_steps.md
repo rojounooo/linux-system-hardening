@@ -27,7 +27,7 @@ ProtectKernelModules=true
 ProtectControlGroups=true
 
 # 🔒 Namespace & Syscall Restrictions
-RestrictNamespaces=uts pid user cgroup
+RestrictNamespaces=uts pid ipc user cgroup
 
 ```
 
