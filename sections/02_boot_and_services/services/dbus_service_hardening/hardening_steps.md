@@ -1,10 +1,46 @@
-# [Service Name] Hardening Steps
+# 🛡️ dbus Service Hardening Guide
 
-## 1. Review Baseline Configuration
-_Describe the default configuration and identified risks._
+This guide outlines best practices for securing the `dbus.service` unit using systemd sandboxing features and capability restrictions to reduce its attack surface.
 
-## 2. Apply Configuration Changes
-_Explain the changes made to harden the service, with before/after settings and justifications._
+## 🔧 Steps to Harden dbus
 
-## 3. Verification
-_Detail how you verified that hardening was effective and the service remains functional._
+### 1. Open the systemd override editor
+```bash
+sudo systemctl edit dbus.service
+``` 
+### 2. Add hardening directives 
+```bash 
+[Service]
+
+# 🛑 Privilege & Access Restrictions
+NoNewPrivileges=yes
+UMask=0027
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_SETUID CAP_SETGID CAP_CHOWN CAP_FOWNER
+RestrictSUIDSGID=true
+
+# 📁 Filesystem Protections
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+# 🧠 Kernel & Device Isolation
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+PrivateDevices=true
+
+# 🔒 Namespace & Syscall Restrictions
+RestrictNamespaces=uts pid user cgroup
+
+```
+
+### 3. Reload and restart 
+ ```bash 
+    sudo systemctl daemon-reexec
+    sudo systemctl restart dbus.service
+```
+
+### 4. Verify changes 
+```bash 
+    systemd-analyze security dbus.service
+``` 
