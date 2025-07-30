@@ -1,10 +1,42 @@
-# [Service Name] Hardening Steps
+# 🛡️ multipathd Service Hardening Guide
 
-## 1. Review Baseline Configuration
-_Describe the default configuration and identified risks._
+This guide outlines best practices for securing the `multipathd.service` unit using systemd sandboxing features and capability restrictions to reduce its attack surface.
 
-## 2. Apply Configuration Changes
-_Explain the changes made to harden the service, with before/after settings and justifications._
+## 🔧 Steps to Harden multipathd
 
-## 3. Verification
-_Detail how you verified that hardening was effective and the service remains functional._
+### 1. Open the systemd override editor
+```bash
+sudo systemctl edit multipathd.service
+``` 
+### 2. Add hardening directives 
+```bash 
+[Service]
+
+# 🛑 Privilege & Access Restrictions
+NoNewPrivileges=yes
+RestrictSUIDSGID=true
+
+# 📁 Filesystem Protections
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+# 🧠 Kernel & Device Isolation
+ProtectKernelTunables=true
+ProtectKernelModules=true
+
+# 🔒 Namespace & Syscall Restrictions
+RestrictNamespaces=uts ipc pid user cgroup
+
+```
+
+### 3. Reload and restart 
+ ```bash 
+    sudo systemctl daemon-reexec
+    sudo systemctl restart multipathd.service
+```
+
+### 4. Verify changes 
+```bash 
+    systemd-analyze security multipathd.service
+``` 
