@@ -60,7 +60,7 @@
 - [✅] Install a file integrity monitoring tool to detect changes to critical files.
 
 ## Legal and User Awareness
-- [ ] Add legal banners to `/etc/issue` and `/etc/issue.net` to warn unauthorized users.
+- [✅] Add legal banners to `/etc/issue` and `/etc/issue.net` to warn unauthorized users.
 
 ---
 
