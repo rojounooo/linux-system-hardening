@@ -30,10 +30,11 @@
 
 4. Monitor Critical Bugs and Changes
 
-    - `apt-listbugs` warns you about known critical bugs in packages before they are installed or upgraded.
     - `apt-listchanges` shows changelogs for packages being upgraded, keeping you informed about new features or breaking changes.
     ```bash
-    sudo apt install apt-listbugs apt-listchanges -y
+    sudo add-apt-repository universe
+    sudo apt update
+    sudo apt install apt-listchanges -y
     ```
 
 5. Remove Unused or Unnecessary Software
