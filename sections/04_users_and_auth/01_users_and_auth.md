@@ -7,7 +7,12 @@
 
 ## Steps 
 
-1. Review and Enhance PAM Configuration 
+1. Backup password file 
+
+    ```bash 
+    sudo cp /etc/pam.d/common-password  /etc/pam.d/common-password.bak 
+
+2. Review and Enhance PAM Configuration 
 
     - Edit PAM password file: 
         ```bash 
@@ -28,7 +33,7 @@
     
     - Save and exit 
 
-2. Set Password Expiration Policies:
+3. Set Password Expiration Policies:
 
     - Edit `/etc/login.defs`:
     ```bash 
@@ -49,7 +54,7 @@
     sudo chage -M 90 -m 7 -W 14 username
     ```
 
-3. Install PAM Password Strength Modules
+4. Install PAM Password Strength Modules
 
     - Install pam_pwquality
     ```bash 
@@ -75,7 +80,7 @@
 
     - Save and Exit
 
-4. Set Stricter umask
+5. Set Stricter umask
 
     - Modify /etc/login.defs
     ```bash 
@@ -93,7 +98,7 @@
     sudo chmod +x /etc/profile.d/umask.sh
     ```
 
-5. Set Expiration Dates on Accounts Where Applicable 
+6. Set Expiration Dates on Accounts Where Applicable 
 
     - Set date for specific user account:
     ```bash 
