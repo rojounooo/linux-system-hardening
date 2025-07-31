@@ -28,7 +28,6 @@ The project:
 |---------------|-----------------------------------------------------|
 | [sections/](./sections)       | Contains my step-by-step guide |
 | [scripts/](./scripts/)      | Bash and Python scripts for automating tasks |
-| [configs/](./configs/)      | Example hardened configuration files |
 | [assessments/](./assessments/) | Before/after Lynis and OpenSCAP reports |
 | README.md     | Landing page |
 | LICENSE       | Project License (MIT) |
