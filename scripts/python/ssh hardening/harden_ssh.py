@@ -26,6 +26,7 @@ config_changes = {
     "TCPKeepAlive": "TCPKeepAlive no",
     "X11Forwarding": "X11Forwarding no",
     "AllowAgentForwarding": "AllowAgentForwarding no",
+    "PermitEmptyPasswords": "PermitEmptyPasswords no",  # Added this line
 }
 
 # === Functions ===
@@ -66,8 +67,6 @@ def modify_lines(lines, changes):
         for old, new in changes.items():
             if old in stripped_line:
                 applied_keys.add(old)
-
-                # Replace the entire line with the active new line
                 updated_lines.append(new + "\n")
                 print(f"Replacing: {line.strip()} → {new}")
                 modified = True
@@ -76,7 +75,6 @@ def modify_lines(lines, changes):
         if not modified:
             updated_lines.append(line)
 
-    # Add missing settings not found in original file
     for old, new in changes.items():
         if old not in applied_keys:
             updated_lines.append(new + "\n")
