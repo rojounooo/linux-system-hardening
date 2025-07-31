@@ -38,5 +38,10 @@ The project:
 - Manual Hardening: Followed suggestions from report step-by-step to better understand the changes I made
 - Automation: Finalised scripts for automating each section e.g. harden_ssh.py
 
+| Initial Hardening Score   | Final Hardening Score                   |
+|---------------------------|-----------------------------------------|
+|           62              |                 87                      |
+
+
 ## 📜 License
 This project is licensed under the MIT License.
