@@ -12,7 +12,6 @@
     ```bash 
     sudo cp /etc/pam.d/common-password  /etc/pam.d/common-password.bak 
     sudo cp /etc/login.defs /etc/login.defs.bak
-    sudo cp /etc/pam.d/common-password /etc/pam.d/common-password.bak
     ```
 
 2. Review and Enhance PAM Configuration 
