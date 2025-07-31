@@ -75,6 +75,7 @@ This is different to the earlier hardening using `systemctl edit` as that overri
     ```bash
     PasswordAuthentication no
     PubkeyAuthentication yes
+    PermitEmptyPasswords no
     ```
 
 
