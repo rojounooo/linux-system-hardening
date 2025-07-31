@@ -1,0 +1,27 @@
+Hardening Index:
+----------------
+87
+
+Warnings:
+----------------
+MAIL-8818|Found some information disclosure in SMTP banner (OS or software name)|-|-|
+FIRE-4512|iptables module(s) loaded, but no rules active|-|-|
+
+Suggestions:
+----------------
+LYNIS|This release is more than 4 months old. Check the website or GitHub to see if there is an update available.|-|-|
+BOOT-5264|Consider hardening system services|Run '/usr/bin/systemd-analyze security SERVICE' for each service|-|
+AUTH-9229|Check PAM configuration, add rounds if applicable and expire passwords to encrypt with new values|-|-|
+AUTH-9230|Configure password hashing rounds in /etc/login.defs|-|-|
+AUTH-9282|When possible set expire dates for all password protected accounts|-|-|
+NAME-4028|Check DNS configuration for the dns domain name|-|-|
+PKGS-7346|Purge old/removed packages (4 found) with aptitude purge or dpkg --purge command. This will cleanup old configuration files, cron jobs and startup scripts.|-|-|
+PKGS-7370|Check debsums configuration and enable checking regularly via a cron job (CRON_CHECK in default file).|-|-|
+NETW-3200|Determine if protocol 'rds' is really needed on this system|-|-|
+MAIL-8818|You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)|-|-|
+MAIL-8820:disable_vrfy_command|Disable the 'VRFY' command|disable_vrfy_command
+ACCT-9630|Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules|-|-|
+TOOL-5002|Determine if automation tools are present for system management|-|-|
+FILE-7524|Consider restricting file permissions|See screen output or log file|text:Use chmod to change file permissions|
+KRNL-6000|One or more sysctl values differ from the scan profile and could be tweaked||Change sysctl value or disable test (skip-test
+HRDN-7222|Harden compilers like restricting access to root user only|-|-|
