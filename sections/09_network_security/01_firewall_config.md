@@ -40,9 +40,9 @@
 
 5. **Allow SSH access**
 
-    - Enable incoming SSH connections on port 22.
+    - Enable incoming SSH connections on port 2222 (replace with your SSH port).
     ```bash
-    sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+    sudo iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
     ```
 
 6. **Save your iptables rules**
