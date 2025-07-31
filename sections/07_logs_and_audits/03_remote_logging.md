@@ -40,3 +40,10 @@ Logging to an external server allows backup of logs, it can be used to preserve 
 
     ```bash 
     sudo systemctl restart rsyslog
+    ```
+
+7. Test 
+
+    ```bash 
+    logger "Syslog test from Ubuntu VM
+    ```
